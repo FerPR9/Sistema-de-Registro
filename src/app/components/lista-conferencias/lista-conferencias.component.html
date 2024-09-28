@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <div class="row">
+        <!-- ngFor para iterar sobre las conferencias -->
+        <div class="col-md-4" *ngFor="let conferencia of listConferencia">
+            <div class="card">
+                <!-- Suponiendo que fotoConferencista es una URL de imagen -->
+                <img src="{{conferencia.fotoConferencista}}" class="img-fluid" style="max-height: 100px; max-width: 100%; object-fit: contain;" alt="Foto del conferencista">
+                <div class="card-body">
+                    <h5 class="card-title">{{ conferencia.nombreConferencia }}</h5>
+                    <p class="card-text">
+                        <strong>Conferencista:</strong> {{ conferencia.nombreConferencista }}<br>
+                        <strong>Experiencia laboral del conferencista:</strong> {{ conferencia.experienciaConferencista }}<br>
+                        <strong>Fecha:</strong> {{ conferencia.fechaConferencia | date:'mediumDate' }}<br>
+                        <strong>Lugar:</strong> {{ conferencia.lugarConferencia }}<br>
+                        <strong>Cupo:</strong> {{ conferencia.cupoConferencia }}
+                    </p>
+                    <!-- Aquí puedes añadir lógica para el botón de registro si es necesario -->
+                    <a href="/registro-participante" class="btn btn-primary">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

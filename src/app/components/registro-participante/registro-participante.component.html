@@ -1,0 +1,74 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">REGISTRATE</span>
+                    <form id="registrationForm" [formGroup]="registroForm" (ngSubmit)="registrarParticipante()">
+
+                        <!-- Añadir un campo oculto en tu formulario de registro -->
+                        <input type="hidden" formControlName="conferenciaId" value="{{conferenciaSeleccionadaId}}">
+
+
+                        <label for="nombre" class="left-align">Nombre Completo:</label>
+                        <input type="text" formControlName="nombre" id="nombre" name="nombre"
+                            placeholder="Nombre Completo">
+
+                        <div class="text-danger"
+                            *ngIf="registroForm.get('nombre')?.hasError('required') && registroForm.get('nombre')?.touched">
+                            <span>El nombre de la persona <strong> es obligatorio</strong></span>
+                        </div>
+                        <br>
+
+                        <label for="correoElectronico" class="left-align">Correo Electrónico:</label>
+                        <input type="email" formControlName="correoElectronico" class="form-control"
+                            placeholder="Correo electronico">
+                        <div class="text-danger"
+                            *ngIf="registroForm.get('correoElectronico')?.hasError('required') && registroForm.get('correoElectronico')?.touched">
+                            <span>El correo <strong> es obligatorio</strong></span>
+                        </div>
+                        <br>
+
+                        <label for="telefono" class="left-align">Teléfono:</label>
+                        <input type="tel" formControlName="telefono" id="telefono" name="telefono"
+                            placeholder="Teléfono">
+                        <div class="text-danger"
+                            *ngIf="registroForm.get('telefono')?.hasError('required') && registroForm.get('telefono')?.touched">
+                            <span>El teléfono <strong> es obligatorio</strong></span>
+                        </div>
+                        <br>
+
+                        <label for="areaTrabajo" class="left-align">Área de Trabajo:</label>
+                        <select class="form-select" formControlName="areaTrabajo" aria-label="Default select example">
+                            <option selected>Selecciona el area de trabajo</option>
+                            <option *ngFor="let area of areasDeTrabajo" [value]="area.nombre">{{ area.nombre }}</option>
+                        </select>
+                        <div class="text-danger"
+                            *ngIf="registroForm.get('areaTrabajo')?.hasError('required') && registroForm.get('areaTrabajo')?.touched">
+                            <span>La selección del área <strong> es obligatorio</strong></span>
+                        </div>
+                        <br>
+
+                        <label for="fotoParticipante">Foto:</label>
+                        <input type="file" (change)="onFileSelected($event)" formControlName="foto"
+                            id="fotoParticipante" name="fotoParticipante">
+                        <div class="text-danger"
+                            *ngIf="registroForm.get('foto')?.hasError('required') && registroForm.get('foto')?.touched">
+                            <span>Debe cargar una imagen <strong>obligatoriamente</strong></span>
+                        </div>
+                        <br>
+                        <div class="button-container">
+                            <button type="submit" [disabled]="registroForm.invalid" id="registerButton"
+                                class="left-button">Registrarse</button>
+                            <button type="submit" id="homeButton" class="right-button"
+                                routerLink="/lista-conferencias">Otra conferencia </button>
+                            <button type="submit" id="homeButton" class="right-button" routerLink="/lista-taller">Otra
+                                taller </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

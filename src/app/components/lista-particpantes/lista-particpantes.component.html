@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-12"> <!-- Full width column -->
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">LISTADO DE PARTICIPANTES</span>
+          <table *ngIf="listRegistro.length > 0" class=" table-striped mt-3">
+            <thead>
+              <tr>
+                <!-- Specified column width classes -->
+                <th scope="col" class="col-2 p-3">Nombre participante</th>
+                <th scope="col" class="col-2">Correo electronico</th>
+                <th scope="col" class="col-2">Telefono</th>
+                <th scope="col" class="col-2">Area de trabajo</th>
+                <th scope="col" class="col-2">Foto del participante</th>
+                <th scope="col" class="col-2">Fecha de registro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- ngFor directive for dynamic data -->
+              <tr *ngFor="let registro of listRegistro">
+                <td class="text-truncate">{{registro.nombre}}</td>
+                <td class="text-truncate">{{registro.correoElectronico}}</td>
+                <td class="text-truncate">{{registro.telefono}}</td>
+                <td class="text-truncate">{{registro.areaTrabajo}}</td>
+                <td>
+                  <!-- Inline styles to control the image size and fit -->
+                  <img src="{{registro.foto}}" class="img-fluid" style="max-height: 100px; max-width: 100%; object-fit: contain;" alt="Foto del participante">
+                </td>
+                <td>{{ currentDate | date:'mediumDate' }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="listRegistro.length == 0">No hay participantes registrados</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,64 +1,85 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-6 offset-lg-3">
             <div class="card">
-                <div class="card-body">
-                    <form [formGroup]="conferenciaForm" (ngSubmit)="registrarConferencia()">
+                <div class="card-body text-center">
+                    <span class="titulo">REGISTRO DE CONFERENCIA</span>
+                    <form id="conferenceForm" [formGroup]="conferenciaForm" (ngSubmit)="registrarConferencia()">
 
                         <!-- Nombre de la conferencia -->
-                        <div class="mb-3">
-                            <label for="nombreConferencia" class="form-label">Nombre de la Conferencia</label>
-                            <input type="text" class="form-control" formControlName="nombreConferencia" id="nombreConferencia" required>
-                            <div class="text-danger" *ngIf="conferenciaForm.get('nombreConferencia')?.hasError('required') && conferenciaForm.get('nombreConferencia')?.touched">
-                                <span>El nombre de la conferencia es obligatorio</span>
-                            </div>
+                        <label for="nombreConferencia" class="left-align">Nombre de la Conferencia:</label>
+                        <input type="text" formControlName="nombreConferencia" id="nombreConferencia" 
+                            placeholder="Nombre de la conferencia" class="form-control">
+                        <div class="text-danger" 
+                            *ngIf="conferenciaForm.get('nombreConferencia')?.hasError('required') && conferenciaForm.get('nombreConferencia')?.touched">
+                            <span>El nombre de la conferencia <strong>es obligatorio</strong></span>
                         </div>
+                        <br>
 
                         <!-- Nombre del Conferencista -->
-                        <div class="mb-3">
-                            <label for="nombreConferencista" class="form-label">Nombre del Conferencista</label>
-                            <input type="text" class="form-control" formControlName="nombreConferencista" id="nombreConferencista" required>
-                            <!-- Agregar validaciones como en el nombre de la conferencia si es necesario -->
+                        <label for="nombreConferencista" class="left-align">Nombre del Conferencista:</label>
+                        <input type="text" formControlName="nombreConferencista" id="nombreConferencista" 
+                            placeholder="Nombre del conferencista" class="form-control">
+                        <div class="text-danger"
+                            *ngIf="conferenciaForm.get('nombreConferencista')?.hasError('required') && conferenciaForm.get('nombreConferencista')?.touched">
+                            <span>El nombre del conferencista <strong>es obligatorio</strong></span>
                         </div>
+                        <br>
 
                         <!-- Fecha de la conferencia -->
-                        <div class="mb-3">
-                            <label for="fechaConferencia" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" formControlName="fechaConferencia" id="fechaConferencia" required>
-                            <!-- Agregar validaciones como en el nombre de la conferencia si es necesario -->
+                        <label for="fechaConferencia" class="left-align">Fecha:</label>
+                        <input type="date" formControlName="fechaConferencia" id="fechaConferencia" 
+                            class="form-control">
+                        <div class="text-danger"
+                            *ngIf="conferenciaForm.get('fechaConferencia')?.hasError('required') && conferenciaForm.get('fechaConferencia')?.touched">
+                            <span>La fecha de la conferencia <strong>es obligatoria</strong></span>
                         </div>
+                        <br>
 
                         <!-- Lugar de la conferencia -->
-                        <div class="mb-3">
-                            <label for="lugarConferencia" class="form-label">Lugar</label>
-                            <input type="text" class="form-control" formControlName="lugarConferencia" id="lugarConferencia" required>
-                            <!-- Agregar validaciones como en el nombre de la conferencia si es necesario -->
+                        <label for="lugarConferencia" class="left-align">Lugar:</label>
+                        <input type="text" formControlName="lugarConferencia" id="lugarConferencia" 
+                            placeholder="Lugar de la conferencia" class="form-control">
+                        <div class="text-danger"
+                            *ngIf="conferenciaForm.get('lugarConferencia')?.hasError('required') && conferenciaForm.get('lugarConferencia')?.touched">
+                            <span>El lugar de la conferencia <strong>es obligatorio</strong></span>
                         </div>
+                        <br>
 
                         <!-- Cupo de la conferencia -->
-                        <div class="mb-3">
-                            <label for="cupoConferencia" class="form-label">Cupo</label>
-                            <input type="number" class="form-control" formControlName="cupoConferencia" id="cupoConferencia" required>
-                            <!-- Agregar validaciones como en el nombre de la conferencia si es necesario -->
+                        <label for="cupoConferencia" class="left-align">Cupo:</label>
+                        <input type="number" formControlName="cupoConferencia" id="cupoConferencia" 
+                            placeholder="Cupo disponible" class="form-control">
+                        <div class="text-danger"
+                            *ngIf="conferenciaForm.get('cupoConferencia')?.hasError('required') && conferenciaForm.get('cupoConferencia')?.touched">
+                            <span>El cupo <strong>es obligatorio</strong></span>
                         </div>
+                        <br>
 
                         <!-- Foto del Conferencista -->
-                        <div class="mb-3">
-                            <label for="fotoConferencista" class="form-label">Foto del Conferencista</label>
-                            <input type="file" class="form-control" (change)="onFileSelected($event)" formControlName="fotoConferencista" id="fotoConferencista" accept="image/*">
-                            <!-- Agregar validaciones como en el nombre de la conferencia si es necesario -->
+                        <label for="fotoConferencista" class="left-align">Foto del Conferencista:</label>
+                        <input type="file" (change)="onFileSelected($event)" formControlName="fotoConferencista" 
+                            id="fotoConferencista" class="form-control" accept="image/*">
+                        <div class="text-danger"
+                            *ngIf="conferenciaForm.get('fotoConferencista')?.hasError('required') && conferenciaForm.get('fotoConferencista')?.touched">
+                            <span>Debe cargar una imagen <strong>obligatoriamente</strong></span>
                         </div>
+                        <br>
 
                         <!-- Experiencia del Conferencista -->
-                        <div class="mb-3">
-                            <label for="experienciaConferencista" class="form-label">Experiencia Laboral del Conferencista</label>
-                            <textarea class="form-control" formControlName="experienciaConferencista" id="experienciaConferencista" rows="3"></textarea>
-                            <!-- Agregar validaciones como en el nombre de la conferencia si es necesario -->
+                        <label for="experienciaConferencista" class="left-align">Experiencia Laboral del Conferencista:</label>
+                        <textarea class="form-control" formControlName="experienciaConferencista" 
+                            id="experienciaConferencista" rows="3" placeholder="Experiencia laboral"></textarea>
+                        <div class="text-danger"
+                            *ngIf="conferenciaForm.get('experienciaConferencista')?.hasError('required') && conferenciaForm.get('experienciaConferencista')?.touched">
+                            <span>La experiencia laboral <strong>es obligatoria</strong></span>
                         </div>
+                        <br>
 
                         <!-- Botón para registrar la conferencia -->
                         <div class="button-container">
-                            <button type="submit" [disabled]="conferenciaForm.invalid" class="btn btn-primary">Registrar Conferencia</button>
+                            <button type="submit" [disabled]="conferenciaForm.invalid" id="registerButton"
+                                class="left-button">Registrar Conferencia</button>
                         </div>
                     </form>
                 </div>

@@ -17,6 +17,7 @@ import { ListaParticpantesComponent} from './components/lista-particpantes/lista
 import { ListaConferenciasComponent } from './components/lista-conferencias/lista-conferencias.component';
 import { ListaTallerComponent } from './components/lista-taller/lista-taller.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
     ListaParticpantesComponent,
     ListaConferenciasComponent,
     ListaTallerComponent,
-    InicioComponent
+    InicioComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

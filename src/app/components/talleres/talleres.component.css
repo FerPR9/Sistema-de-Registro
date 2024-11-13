@@ -1,19 +1,73 @@
+body {
+    background: #f4f4f4;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.card-body {
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 40%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.card-body span.titulo {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+#tallerForm label {
+    margin: 10px 0 5px;
+    display: block;
+    font-weight: 600;
+    color: #333;
 }
 
-.container {
-    padding: 2px 16px;
+#tallerForm input, #tallerForm select, #tallerForm textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
 }
 
-.cupo-completo {
-    color: red;
-    font-weight: bold;
+#tallerForm input:focus, #tallerForm select:focus, #tallerForm textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-button, #homeButton {
+    background: linear-gradient(to right, #0066ff, #003d82);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.left-button:hover, #homeButton:hover {
+    transform: scale(1.05);
+}
+
+.left-align {
+    text-align: left;
+}
+
+.text-danger {
+    text-align: start;
+    margin-left: 7px;
 }

@@ -1,68 +1,61 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-6 offset-lg-3">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body text-center">
+                    <span class="titulo">REGISTRAR TALLER</span>
                     <form [formGroup]="tallerForm" (ngSubmit)="registrarTaller()">
 
                         <!-- Nombre del taller -->
                         <div class="mb-3">
-                            <label for="nombreTaller" class="form-label">Nombre del Taller</label>
-                            <input type="text" class="form-control" formControlName="nombreTaller" id="nombreTaller" required>
+                            <label for="nombreTaller" class="left-align">Nombre del Taller:</label>
+                            <input type="text" class="form-control" formControlName="nombreTaller" id="nombreTaller" placeholder="Nombre del Taller" required>
                             <div class="text-danger" *ngIf="tallerForm.get('nombreTaller')?.hasError('required') && tallerForm.get('nombreTaller')?.touched">
-                                <span>El nombre del taller es obligatorio</span>
+                                <span>El nombre del taller <strong>es obligatorio</strong></span>
                             </div>
                         </div>
 
                         <!-- Nombre del Responsable del taller -->
                         <div class="mb-3">
-                            <label for="nombreResponsable" class="form-label">Nombre del Responsable del Taller</label>
-                            <input type="text" class="form-control" formControlName="nombreResponsable" id="nombreResponsable" required>
-                            <!-- Agregar validaciones como en el nombre del taller si es necesario -->
+                            <label for="nombreResponsable" class="left-align">Nombre del Responsable del Taller:</label>
+                            <input type="text" class="form-control" formControlName="nombreResponsable" id="nombreResponsable" placeholder="Nombre del Responsable" required>
                         </div>
 
                         <!-- Fecha del taller -->
                         <div class="mb-3">
-                            <label for="fechaTaller" class="form-label">Fecha</label>
+                            <label for="fechaTaller" class="left-align">Fecha:</label>
                             <input type="date" class="form-control" formControlName="fechaTaller" id="fechaTaller" required>
-                            <!-- Agregar validaciones como en el nombre del taller si es necesario -->
                         </div>
 
                         <!-- Lugar del taller -->
                         <div class="mb-3">
-                            <label for="lugarTaller" class="form-label">Lugar</label>
-                            <input type="text" class="form-control" formControlName="lugarTaller" id="lugarTaller" required>
-                            <!-- Agregar validaciones como en el nombre del taller si es necesario -->
+                            <label for="lugarTaller" class="left-align">Lugar:</label>
+                            <input type="text" class="form-control" formControlName="lugarTaller" id="lugarTaller" placeholder="Lugar del Taller" required>
                         </div>
 
                         <!-- Cupo del taller -->
                         <div class="mb-3">
-                            <label for="cupoTaller" class="form-label">Cupo</label>
-                            <input type="number" class="form-control" formControlName="cupoTaller" id="cupoTaller" required>
-                            <!-- Agregar validaciones como en el nombre del taller si es necesario -->
+                            <label for="cupoTaller" class="left-align">Cupo:</label>
+                            <input type="number" class="form-control" formControlName="cupoTaller" id="cupoTaller" placeholder="Cupo disponible" required>
                         </div>
 
                         <!-- Foto del Responsable del taller -->
                         <div class="mb-3">
-                            <label for="fotoResponsableTaller" class="form-label">Foto del Responsable del Taller</label>
+                            <label for="fotoResponsableTaller" class="left-align">Foto del Responsable del Taller:</label>
                             <input type="file" class="form-control" (change)="onFileSelected($event)" formControlName="fotoResponsableTaller" id="fotoResponsableTaller" accept="image/*">
-                            <!-- Agregar validaciones como en el nombre del taller si es necesario -->
                         </div>
 
                         <!-- Experiencia del Responsable del taller -->
                         <div class="mb-3">
-                            <label for="experienciaResponsableTaller" class="form-label">Experiencia Laboral del Responsable del Taller</label>
-                            <textarea class="form-control" formControlName="experienciaResponsableTaller" id="experienciaResponsableTaller" rows="3"></textarea>
-                            <!-- Agregar validaciones como en el nombre del taller si es necesario -->
+                            <label for="experienciaResponsableTaller" class="left-align">Experiencia Laboral del Responsable del Taller:</label>
+                            <textarea class="form-control" formControlName="experienciaResponsableTaller" id="experienciaResponsableTaller" rows="3" placeholder="Escribe la experiencia"></textarea>
                         </div>
 
                         <!-- Botón para registrar el taller -->
                         <div class="button-container">
-                            <button type="submit" [disabled]="tallerForm.invalid" class="btn btn-primary">Registrar Taller</button>
-                            <button type="submit" id="homeButton" class="right-button" routerLink="/lista-taller">Volver
-                                al inicio</button>
+                            <button type="submit" [disabled]="tallerForm.invalid" class="left-button">Registrar Taller</button>
+                            <button type="submit" id="homeButton" class="right-button" routerLink="/lista-taller">Volver al inicio</button>
                         </div>
-                        
                     </form>
                 </div>
             </div>
